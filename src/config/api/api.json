@@ -1,0 +1,8 @@
+{
+	"port": 8080,
+	"prefix": "/api",
+	"specs": "/docs",
+	"bodyLimit": "100kb",
+	"corsHeaders": ["Link"],
+	"secretKey": "abc123"
+}

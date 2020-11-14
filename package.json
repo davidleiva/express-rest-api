@@ -1,0 +1,63 @@
+{
+  "name": "express-rest-api",
+  "version": "0.0.0",
+  "description": "Starter project for an Express REST API using mongodb",
+  "author": "John Edward <johnedwardescuyos@gmail.com>",
+  "license": "MIT",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint src test",
+    "test:specs": "mocha --compilers js:babel-core/register --recursive 'src/**/*.spec.js'",
+    "test:specs:watch": "npm run test:specs -- --watch",
+    "test:e2e": "PORT=8081 mocha --compilers js:babel-core/register --recursive ./test/",
+    "test:e2e:watch": "npm run test:e2e -- --watch",
+    "test": "npm-run-all --parallel test:specs test:e2e",
+    "test:watch": "npm-run-all --parallel test:specs:watch test:e2e:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeescu/express-rest-api.git"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "helmet": "^3.5.0",
+    "jsonwebtoken": "^7.4.0",
+    "mongoose": "^4.9.5",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "resource-router-middleware": "^0.6.0",
+    "swagger-ui-express": "^1.0.7",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.1.1",
+    "mocha": "^3.3.0",
+    "nodemon": "^1.9.2",
+    "npm-run-all": "^4.0.2",
+    "pre-commit": "^1.2.2",
+    "supertest": "^3.0.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/jeescu/express-rest-api/issues"
+  },
+  "homepage": "https://github.com/jeescu/express-rest-api#readme"
+}
